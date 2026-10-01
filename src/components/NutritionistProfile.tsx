@@ -7,7 +7,10 @@ import {
   CheckCircle2, 
   Sparkles,
   ArrowRight,
-  Stethoscope
+  Stethoscope,
+  MapPin,
+  MessageCircle,
+  ShieldCheck
 } from 'lucide-react';
 import { Card3DTilt } from './Card3DTilt';
 
@@ -16,24 +19,24 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
 
   const pillars = [
     {
-      title: 'Nutrigenomics & Food as Data',
-      desc: 'Food is not just gasoline for the body; every phytonutrient, peptide, and lipid sends epigenetic instructions to your DNA and mitochondria.',
-      icon: '🧬'
-    },
-    {
-      title: 'Microbiome-Centric Healing',
-      desc: '70% of your immune system and 90% of serotonin reside in the intestinal mucosa. We re-diversify bacterial colonies to resolve mood and inflammation.',
+      title: 'Cero Productos Milagro ni Batidos',
+      desc: 'No vendemos pastillas, sustitutivos ni suplementos innecesarios. Aprendes a comer con comida real que encuentras en el mercado de tu barrio.',
       icon: '🥑'
     },
     {
-      title: 'Metabolic Flexibility Over Restriction',
-      desc: 'True health is the cellular ability to seamlessly burn both fatty acids and glucose without crashes, brain fog, or persistent ravenous hunger.',
-      icon: '⚡'
+      title: 'Psiconutrición y Relación con la Comida',
+      desc: 'Trabajamos el hambre emocional, la ansiedad y la culpa. Comer tiene que ser un acto de salud y disfrute, no una fuente de estrés continuo.',
+      icon: '🧠'
     },
     {
-      title: 'Zero Dogma or Fad Diets',
-      desc: 'Whether Paleo, Mediterranean, or Plant-Rich, we calibrate your protocol based exclusively on your biological blood chemistry and tolerance.',
-      icon: '🎯'
+      title: 'Salud Digestiva y Microbiota',
+      desc: 'El 70% de tu sistema inmune reside en tu intestino. Identificamos las causas de la hinchazón, gases o digestiones pesadas para desinflamar tu cuerpo.',
+      icon: '🧬'
+    },
+    {
+      title: 'Adaptado a tu Vida Social Real',
+      desc: 'Tu plan se adapta a salir a tapear por Sevilla, tus viajes y tus cenas familiares. Si un plan no te permite tener vida social, no es para ti.',
+      icon: '🍷'
     }
   ];
 
@@ -47,33 +50,33 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
             <Card3DTilt maxTilt={8} className="w-full max-w-md">
               <div className="relative rounded-3xl overflow-hidden shadow-float border border-slate-200/80 bg-slate-50 group">
                 
-                {/* Doctor Photo */}
-                <div className="relative h-96 sm:h-[450px] w-full">
+                {/* Clinic / Team Photo */}
+                <div className="relative h-96 sm:h-[460px] w-full">
                   <img
                     src="https://images.unsplash.com/photo-1594824813596-f08966c4c0f2?w=800&auto=format&fit=crop&q=80"
-                    alt="Dr. Elena Vance, Lead Clinical Nutritionist"
+                    alt="Equipo Punto Final Nutrición Sevilla"
                     className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
                   
                   {/* Bottom details */}
                   <div className="absolute bottom-5 left-5 right-5 text-white">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/90 backdrop-blur-sm text-xs font-bold mb-2">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/95 backdrop-blur-sm text-xs font-bold mb-2">
                       <Stethoscope className="w-3.5 h-3.5" />
-                      <span>Lead Clinical Nutritionist</span>
+                      <span>Dietistas-Nutricionistas Colegiadas</span>
                     </div>
-                    <h3 className="text-2xl font-black font-display">Dr. Elena Vance, MS, RD, IFMCP</h3>
-                    <p className="text-xs text-slate-200">Registered Dietitian & Functional Medicine Practitioner</p>
+                    <h3 className="text-2xl font-black font-display">Equipo PUNTOFINAL.</h3>
+                    <p className="text-xs text-slate-200 font-medium">Especialistas en Reeducación Alimentaria y Salud Integral</p>
                   </div>
                 </div>
 
                 {/* Floating Credential Badge */}
-                <div className="p-4 bg-white/90 backdrop-blur-md border-t border-slate-100 flex items-center justify-between text-xs">
+                <div className="p-4 bg-white/95 backdrop-blur-md border-t border-slate-100 flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="w-4 h-4 text-brand-600" />
-                    <span className="font-semibold text-slate-800">Columbia University & Harvard Fellowship</span>
+                    <MapPin className="w-4 h-4 text-brand-600" />
+                    <span className="font-bold text-slate-800">Los Bermejales, Sevilla</span>
                   </div>
-                  <span className="text-brand-700 font-bold">12+ Yrs Exp</span>
+                  <span className="text-brand-700 font-black">+200 Reseñas 5.0 ★</span>
                 </div>
 
               </div>
@@ -82,30 +85,30 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
 
           {/* Right Column: Narrative, Philosophy, and Credentials (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-semibold mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-4 border border-brand-200">
               <HeartPulse className="w-3.5 h-3.5" />
-              <span>Meet Your Clinical Partner</span>
+              <span>Filosofía de Nuestro Centro</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-display mb-6">
-              "We Don't Treat Numbers on a Scale. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-600">
-                We Restore Human Vitality."
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-display mb-6">
+              "No te ponemos a dieta. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-emerald-600 to-teal-600">
+                Ponemos PUNTO FINAL al efecto rebote."
               </span>
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-              After spending over a decade in hospital clinical nutrition and observing thousands of patients suffering from the cycle of chronic metabolic stagnation, Dr. Elena founded AuraNutri to bring root-cause medicine directly to everyday individuals.
+              En nuestro centro en <strong>Avenida de Finlandia (Edificio Bermejales Center, Sevilla)</strong>, entendemos que cada persona tiene una historia única con la báscula y la alimentación. Muchas de nuestras pacientes llegan cansadas de pasar hambre y de sentirse culpables tras cada comida social.
             </p>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-              Her protocols combine gold-standard functional laboratory diagnostics with delicious, seasonal whole food recipes that respect your heritage, family lifestyle, and palate.
+              Nuestro compromiso es escucharte, entender tu contexto y enseñarte a comer con base científica y platos apetitosos. Combinamos la nutrición clínica con la psiconutrición para que alcances tu peso saludable y lo mantengas con naturalidad el resto de tu vida.
             </p>
 
             {/* Philosophy Interactive Pillars */}
             <div className="mb-8">
-              <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">
-                Core Clinical Philosophy
+              <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-3">
+                Los 4 Pilares del Método Punto Final
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {pillars.map((pillar, idx) => (
@@ -122,7 +125,7 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
                       <span className="text-lg">{pillar.icon}</span>
                       <h5 className="text-xs font-bold text-slate-900">{pillar.title}</h5>
                     </div>
-                    <p className="text-[11px] text-slate-600 leading-relaxed">
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-medium">
                       {pillar.desc}
                     </p>
                   </div>
@@ -131,19 +134,24 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
             </div>
 
             {/* Credentials Row */}
-            <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-100">
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-100">
               <button
                 onClick={onOpenBooking}
-                className="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-sm"
+                className="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-sm"
               >
-                <span>Book 1-on-1 with Dr. Elena</span>
+                <span>Pedir Cita en Consulta</span>
                 <ArrowRight className="w-4 h-4 text-emerald-400" />
               </button>
 
-              <div className="flex items-center gap-2 text-xs text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-brand-600" />
-                <span>Accepting 6 new private patients this month</span>
-              </div>
+              <a
+                href="https://wa.me/34682602256?text=Hola,%20quisiera%20conocer%20m%C3%A1s%20sobre%20vuestro%20m%C3%A9todo%20de%20nutrici%C3%B3n%20en%20Punto%20Final"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <span>Escríbenos al 682 60 22 56</span>
+              </a>
             </div>
 
           </div>

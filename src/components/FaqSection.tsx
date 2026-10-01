@@ -9,44 +9,44 @@ interface FaqItem {
 
 const faqs: FaqItem[] = [
   {
-    category: 'Consultations',
-    question: 'How do virtual telehealth consultations work?',
-    answer: 'Consultations take place via our secure, HIPAA-compliant HD video platform. Before our first session, you will complete an in-depth metabolic questionnaire and upload any recent medical bloodwork. During the 75-minute intake, we analyze your bio-markers, symptoms, and lifestyle before crafting your custom 30-day intervention.'
+    category: 'Método y Comida',
+    question: '¿Tendré que pesar la comida o contar calorías toda la vida?',
+    answer: 'Rotundamente no. En Punto Final nuestro propósito es la reeducación alimentaria. Al principio utilizamos referencias visuales sencillas y prácticas (como el método del plato y las porciones con la mano), pero jamás te encadenaremos a una báscula de cocina. Te enseñamos a conectar con tus señales naturales de hambre y saciedad.'
   },
   {
-    category: 'Testing & Labs',
-    question: 'Can Dr. Elena order functional lab panels and bloodwork?',
-    answer: 'Yes! We order comprehensive functional diagnostics through LabCorp, Quest, and specialty laboratories including GI-MAP (DNA stool microbiome sequencing), DUTCH Complete (urine steroid hormone testing), and Continuous Glucose Monitors (CGM). If you already have existing lab work from your primary doctor, we review it thoroughly at no extra fee.'
+    category: 'Ubicación y Citas',
+    question: '¿Dónde está la consulta en Sevilla y cómo funciona la modalidad online?',
+    answer: 'Nuestra clínica física está ubicada en Sevilla, en la Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20 (41012). Disponemos de fácil acceso y aparcamiento. Si vives fuera de Sevilla o tus horarios no te permiten desplazarte, atendemos a pacientes de toda España mediante videoconsulta online con el mismo protocolo, cercanía y seguimiento continuo.'
   },
   {
-    category: 'Insurance & Pricing',
-    question: 'Is your care covered by insurance or HSA/FSA funds?',
-    answer: 'While we operate as an out-of-network clinical practice to provide unhurried, evidence-based care, all consultations and functional testing are 100% eligible for HSA (Health Savings Account) and FSA (Flexible Spending Account) payments. We provide comprehensive Superbills with clinical CPT diagnosis codes for direct reimbursement from your private insurer.'
+    category: 'Seguros y Tarifas',
+    question: '¿Aceptáis seguros médicos privados (Adeslas, Sanitas, Asisa, etc.)?',
+    answer: 'Somos un centro sanitario privado e independiente para poder dedicarte entre 45 y 70 minutos por sesión sin prisas. Como somos Dietistas-Nutricionistas Colegiadas, emitimos factura sanitaria oficial válida para deducir o presentar ante pólizas de seguro con opción de reembolso de gastos médicos (donde te reintegran habitualmente entre el 80% y el 100%).'
   },
   {
-    category: 'Meal Plans',
-    question: 'Will I be forced to follow an extreme or restrictive diet?',
-    answer: 'Never. Extreme restriction triggers metabolic down-regulation, thyroid slowing, and psychological binge-restrict cycles. We focus on nutrient-density, anti-inflammatory food sequencing, and balancing blood glucose curves. You will eat delicious, satiating whole foods that include seasonal carbohydrates and healthy fats.'
+    category: 'Método y Comida',
+    question: '¿Me vais a vender pastillas, batidos o productos para adelgazar?',
+    answer: 'Nunca. Nuestro lema es poner PUNTO FINAL a las dietas milagro. No vendemos batidos sustitutivos, sobres ni pastillas quemagrasas. Todo tu plan se elabora con comida real de mercado, frutas, verduras, legumbres, pescados, carnes y aceite de oliva virgen extra.'
   },
   {
-    category: 'Meal Plans',
-    question: 'What if I have severe allergies, IBS, or follow a plant-based diet?',
-    answer: 'Every single meal blueprint and recipe collection is built from the ground up for your biology. Whether you require a low-FODMAP, histamine-conscious, autoimmune paleo (AIP), kosher, or vegetarian protocol, your plan will be customized with precision substitutes.'
+    category: 'Acompañamiento',
+    question: '¿Cómo funciona la resolución de dudas por WhatsApp entre consultas?',
+    answer: 'En nuestros planes de acompañamiento cuentas con un canal directo de WhatsApp con tu nutricionista. Si estás en el supermercado y dudas con una etiqueta, o si vas a comer fuera el fin de semana y no sabes qué pedir de la carta, te asesoramos para que aprendas a tomar las mejores decisiones en tiempo real.'
   },
   {
-    category: 'Consultations',
-    question: 'How quickly do patients typically see biological improvements?',
-    answer: 'Most patients notice immediate reductions in post-meal bloating and afternoon energy crashes within 7 to 10 days. Measurable biomarker changes—such as reductions in fasting insulin, triglycerides, and inflammatory hs-CRP—are typically documented on follow-up lab panels at the 8 to 12-week mark.'
+    category: 'Salud Digestiva',
+    question: 'Tengo hinchazón continua, gases o sospecha de SIBO. ¿Cómo me ayudáis?',
+    answer: 'Gran parte de nuestras pacientes acuden por problemas digestivos. Realizamos una valoración profunda de síntomas, revisamos analíticas o pruebas de aliento, y aplicamos protocolos por fases (retirada temporal de fermentables, reparación de mucosa intestinal y reintroducción paulatina) para eliminar la distensión abdominal de raíz.'
   }
 ];
 
 export const FaqSection: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedCategory, setSelectedCategory] = useState<string>('Todas');
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const categories = ['All', 'Consultations', 'Testing & Labs', 'Insurance & Pricing', 'Meal Plans'];
+  const categories = ['Todas', 'Método y Comida', 'Ubicación y Citas', 'Acompañamiento', 'Salud Digestiva', 'Seguros y Tarifas'];
 
-  const filtered = selectedCategory === 'All' 
+  const filtered = selectedCategory === 'Todas' 
     ? faqs 
     : faqs.filter(f => f.category === selectedCategory);
 
@@ -60,15 +60,15 @@ export const FaqSection: React.FC = () => {
         
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-3 border border-brand-200">
             <HelpCircle className="w-3.5 h-3.5" />
-            <span>Got Questions?</span>
+            <span>Respuestas Claras</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3">
-            Frequently Asked Questions
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display mb-3">
+            Preguntas Frecuentes
           </h2>
           <p className="text-slate-600 text-sm sm:text-base">
-            Everything you need to know about our clinical method, lab panels, and personalized care.
+            Todo lo que necesitas saber antes de dar el paso y empezar tu camino en Punto Final.
           </p>
         </div>
 
@@ -81,7 +81,7 @@ export const FaqSection: React.FC = () => {
                 setSelectedCategory(cat);
                 setOpenIndex(0);
               }}
-              className={`px-4 py-2 rounded-full text-xs font-semibold transition-all whitespace-nowrap ${
+              className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
                 selectedCategory === cat
                   ? 'bg-brand-600 text-white shadow-xs'
                   : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -116,7 +116,7 @@ export const FaqSection: React.FC = () => {
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3 animate-fadeIn">
+                  <div className="px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-3 animate-fadeIn font-medium">
                     {item.answer}
                   </div>
                 )}

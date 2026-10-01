@@ -1,63 +1,54 @@
-# AuraNutri — Clinical & Functional Nutritionist Website
+# PUNTOFINAL. — Centro de Nutrición y Reeducación Alimentaria en Sevilla
 
-A modern, high-conversion, light-themed website for a clinical and functional nutritionist. Built with **React 18**, **TypeScript**, **Tailwind CSS**, and **Three.js** with interactive 3D effects, physics-based card tilts, and a mobile-friendly layout.
-
----
-
-## ✨ Key Features & Interactive 3D Effects
-
-1. **Interactive 3D Three.js Hero Canvas**:
-   - Stylized organic 3D cellular fruit and nutrient globe.
-   - Dynamic orbital rings with floating nutrient spheres (*Vitamin C, Zinc, Antioxidants, Omega-3*).
-   - Real-time mouse and touch rotation (click & drag or swipe to explore in 3D).
-   - Auto-spin toggle and ambient particle field.
-2. **Interactive 3D Perspective Card Tilt (`Card3DTilt`)**:
-   - Physics-based 3D tilt with real-time cursor tracking and dynamic specular glare reflection.
-   - Applied across hero floating badges, the macro calculator, meal cards, case studies, and pricing tiers.
-3. **Interactive Macro & Calorie Target Engine**:
-   - Clinical Mifflin-St Jeor formula calculating BMR and TDEE in real time.
-   - Goal selector (*Fat Loss, Lean Muscle, Gut Microbiome, Hormone Balance, Longevity*).
-   - Sliders for age, weight, height, and activity level.
-   - Real-time animated macro distribution bar (Protein, Fats, Carbs) and cellular hydration targets.
-4. **Weekly Whole-Food Meal Planner & Recipe Explorer**:
-   - Monday to Sunday tabs with automated daily caloric and macro totals.
-   - 4 meal slots per day (*Power Breakfast, Nutrient-Dense Lunch, Metabolic Snack, Restorative Dinner*).
-   - Interactive **Recipe Details Modal** featuring prep protocols, checkable ingredient lists, and micronutrient % Daily Value tables.
-5. **Interactive 60-Second Metabolic Archetype Quiz**:
-   - 3-step interactive clinical diagnostic questions with step progression.
-   - Celebration confetti explosion (`canvas-confetti`) on completion.
-   - Personalized clinical archetype summary and priority action plan.
-6. **Interactive Before & After Patient Transformation Slider**:
-   - Interactive draggable before/after image comparison slider.
-   - Real documented biomarker progress (Fasting insulin, HbA1c, triglycerides, gut zonulin levels).
-7. **Clinical Programs & Transparent Pricing**:
-   - Tiered programs (*Metabolic Audit, 12-Week Transformation, VIP Concierge Longevity*).
-   - Interactive billing toggle (*Full Program with 15% discount vs Monthly installments*).
-8. **Multi-Step Consultation Booking Modal**:
-   - Format selector (*Virtual HD Telehealth, In-Clinic New York, Kitchen Audit*).
-   - Live date & time slot picker.
-   - Patient intake form with instant confirmation.
-9. **Lead Nutritionist Profile**:
-   - Dr. Elena Vance, MS, RD, IFMCP (Harvard & Columbia credentials).
-   - Interactive clinical philosophy cards.
-10. **Mobile-First Experience**:
-    - Sticky glassmorphic navbar with smooth slide-out drawer on phones.
-    - Pinned bottom quick-action bar for thumbs-friendly mobile browsing.
-    - Responsive fluid typography and horizontal scroll carousels.
+Sitio web oficial interactivo para **PUNTOFINAL.**, centro de nutrición clínica y dietética ubicado en Sevilla (Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20). Desarrollado con **React 18**, **TypeScript**, **Tailwind CSS** y **Three.js** con efectos 3D interactivos, motor de cálculo metabólico, menús mediterráneos y sistema de citas.
 
 ---
 
-## 🚀 Getting Started
+## ✨ Características Principales
 
-To run the development server locally:
+1. **Identidad del Cliente (Google Maps - Sevilla)**:
+   - Nombre: **PUNTOFINAL.** (5.0 ★★★★★ con más de 203 reseñas).
+   - Ubicación: Avenida de Finlandia 1, Edif. Bermejales Center, Mód. 20, 41012 Sevilla, España (Código Plus: 82VF+HW).
+   - Teléfono & WhatsApp directo: `+34 682 60 22 56`.
+   - Horario: Lunes a viernes de 9:00 a 21:00.
+   - Enfoque: Reeducación alimentaria, psiconutrición y salud digestiva/hormonal sin productos milagro ni efecto rebote.
+2. **Hero Interactivo en 3D (`Three.js`)**:
+   - Modelo orgánico 3D con anillos orbitales y esferas de nutrientes esenciales (*Vitamina C, Omega-3, Antioxidantes, Probióticos*).
+   - Control de rotación por ratón/táctil y botón de giro automático.
+3. **Perspectiva 3D con Inclinación Física (`Card3DTilt`)**:
+   - Tarjetas con seguimiento del cursor y reflejo de luz dinámico en calculadoras, menús y tarifas.
+4. **Calculadora Metabólica Clínica (Mifflin-St Jeor)**:
+   - Estimación personalizada de TMB, Gasto Energético Total (GET) y reparto de macronutrientes (Proteínas, Grasas, Hidratos de carbono y agua).
+   - Objetivos específicos: Pérdida de grasa sin rebote, masa muscular, salud digestiva, equilibrio hormonal (SOP) y bienestar.
+5. **Menús Semanales Mediterráneos & Modal de Recetas**:
+   - Desayunos, comidas, meriendas y cenas ligeras con ingredientes de mercado local (AOVE, pescados frescos, legumbres, verduras de huerta).
+   - Modal interactivo de recetas con ingredientes tachables, pasos de elaboración y micronutrientes (% CDR).
+6. **Test Diagnóstico de Hábitos (60 Segundos)**:
+   - 3 preguntas clave para evaluar el perfil metabólico y digestivo.
+   - Explosión de confeti (`canvas-confetti`) y prioridades clínicas de acción.
+7. **Comparativa Antes / Después Interactiva**:
+   - Deslizador interactivo con métricas clínicas reales (peso, perímetro de cintura, insulina basal, triglicéridos, hinchazón).
+8. **Planes y Tarifas en Euros (€)**:
+   - Consulta Inicial de Valoración, Plan de Reeducación 12 Semanas (Plan Estrella) y Plan Digestivo & Hormonal.
+   - Conmutador de pago único con descuento o mensualidad fraccionada.
+9. **Modal de Reserva & Confirmación por WhatsApp**:
+   - Selección de formato (Presencial en Sevilla, Videoconsulta Online toda España, Plan Pareja).
+   - Selector de fecha y franja horaria (L-V 9:00 a 21:00).
+   - Generación de mensaje directo listo para enviar a WhatsApp al `+34 682 60 22 56`.
+10. **Diseño Mobile-First**:
+    - Barra inferior fijada con accesos rápidos a Macros, Menús, Pedir Cita, Test y WhatsApp directo.
+
+---
+
+## 🚀 Puesta en Marcha
+
+Para iniciar el servidor de desarrollo:
 
 ```bash
 npm run dev
 ```
 
-The application will be accessible at `http://localhost:5173`.
-
-To build for production:
+Para compilar para producción:
 
 ```bash
 npm run build

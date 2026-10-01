@@ -7,7 +7,8 @@ import {
   ChevronRight, 
   Activity, 
   Sparkles,
-  Quote
+  Quote,
+  Star
 } from 'lucide-react';
 import { Card3DTilt } from './Card3DTilt';
 
@@ -15,6 +16,7 @@ interface CaseStudy {
   id: string;
   name: string;
   age: number;
+  location: string;
   condition: string;
   duration: string;
   beforeImg: string;
@@ -26,52 +28,55 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
   {
-    id: 'sarah',
-    name: 'Sarah Mitchell',
-    age: 38,
-    condition: 'Insulin Resistance & Hormonal Weight',
-    duration: '14 Weeks',
+    id: 'rocio',
+    name: 'Rocío G.',
+    age: 36,
+    location: 'Sevilla (Los Bermejales)',
+    condition: 'Pérdida de Peso y Fin del Efecto Rebote',
+    duration: '14 Semanas',
     beforeImg: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&auto=format&fit=crop&q=80',
     afterImg: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80',
     metrics: [
-      { label: 'Body Mass', before: '84.2 kg', after: '68.5 kg', delta: '-15.7 kg' },
-      { label: 'Fasting Insulin', before: '18.4 uIU/mL', after: '5.1 uIU/mL', delta: '-72%' },
-      { label: 'HbA1c', before: '6.4%', after: '5.1%', delta: 'Optimal' },
+      { label: 'Peso Corporal', before: '82.5 kg', after: '67.2 kg', delta: '-15.3 kg' },
+      { label: 'Insulina en Ayunas', before: '17.8 µUI/mL', after: '5.4 µUI/mL', delta: '-70%' },
+      { label: 'Perímetro Cintura', before: '94 cm', after: '76 cm', delta: '-18 cm' },
     ],
-    quote: "I tried calorie restriction for 7 years without lasting results. Dr. Elena looked at my hormone panels and healed my metabolism through real food. I have never felt more vibrant.",
-    protocol: 'Low-glycemic Mediterranean, circadian intermittent fasting, myo-inositol supplementation.'
+    quote: "Llevaba 7 años encadenando dietas donde pasaba hambre, bajaba 4 kilos y subía 8. En Punto Final aprendí a comer de todo, a ir a comidas familiares sin ansiedad y a quererme. Ha sido un cambio para siempre.",
+    protocol: 'Reeducación alimentaria mediterránea, platos completos saciantes y gestión del hambre emocional.'
   },
   {
-    id: 'michael',
-    name: 'Michael Chen',
-    age: 46,
-    condition: 'Chronic Fatigue & Elevated Triglycerides',
-    duration: '12 Weeks',
+    id: 'manuel',
+    name: 'Manuel R.',
+    age: 45,
+    location: 'Sevilla',
+    condition: 'Triglicéridos Altos y Grasa Visceral',
+    duration: '12 Semanas',
     beforeImg: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop&q=80',
     afterImg: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop&q=80',
     metrics: [
-      { label: 'Visceral Fat', before: 'Level 14', after: 'Level 7', delta: '-50%' },
-      { label: 'Triglycerides', before: '240 mg/dL', after: '98 mg/dL', delta: '-59%' },
-      { label: 'Resting Heart Rate', before: '76 bpm', after: '58 bpm', delta: '-18 bpm' },
+      { label: 'Grasa Visceral', before: 'Nivel 13', after: 'Nivel 7', delta: '-46%' },
+      { label: 'Triglicéridos', before: '242 mg/dL', after: '94 mg/dL', delta: '-61%' },
+      { label: 'Tensión Arterial', before: '142/92', after: '118/76', delta: 'Normal' },
     ],
-    quote: "As a tech executive, afternoon brain fog was crippling my focus. Changing the nutrient density and gut microbiome transformed my cognitive clarity within 3 weeks.",
-    protocol: 'Polyphenol-dense whole foods, mitochondrial co-factors, seed-oil elimination protocol.'
+    quote: "Mi médico de cabecera me felicitó al ver la última analítica. No sólo he bajado dos tallas de pantalón, sino que he dejado de tener pesadez después de comer y tengo energía para jugar con mis hijos.",
+    protocol: 'Sustitución de ultraprocesados por comida real, aumento de pescados azules y pautas de tapeo saludable.'
   },
   {
-    id: 'priya',
-    name: 'Priya Patel',
-    age: 31,
-    condition: 'Severe IBS, Gut Dysbiosis & Eczema',
-    duration: '10 Weeks',
+    id: 'carmen',
+    name: 'Carmen M.',
+    age: 29,
+    location: 'Sevilla (Consulta Online)',
+    condition: 'Hinchazón Abdominal Diaria y SOP',
+    duration: '10 Semanas',
     beforeImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80',
     afterImg: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=800&auto=format&fit=crop&q=80',
     metrics: [
-      { label: 'Bloating Severity', before: '9 / 10', after: '0 / 10', delta: 'Resolved' },
-      { label: 'Zonulin (Leaky Gut)', before: '78 ng/mL', after: '24 ng/mL', delta: '-69%' },
-      { label: 'Skin Clarity Score', before: 'Inflamed', after: 'Clear & Radiant', delta: '+100%' },
+      { label: 'Nivel de Hinchazón', before: '9 / 10', after: '1 / 10', delta: 'Resuelto' },
+      { label: 'Ciclos Menstruales', before: '50-65 días', after: '29 días', delta: 'Regular' },
+      { label: 'Energía y Digestión', before: 'Cansancio', after: 'Vitalidad', delta: '+100%' },
     ],
-    quote: "I had visited 4 different gastroenterologists. Dr. Elena actually mapped my stool microbiome and gave me a step-by-step reintroduction plan. My skin cleared completely!",
-    protocol: '4R Gut Restoration protocol (Remove, Replace, Reinoculate, Repair) + L-Glutamine.'
+    quote: "Tenía una barriga tan hinchada al final del día que tenía que desabrocharme los botones. Con el equipo de Punto Final identificamos qué fermentaba mal y regulamos mi ciclo menstrual. ¡Por fin vivo tranquila!",
+    protocol: 'Protocolo digestivo de reintroducción guiada, pauta antiinflamatoria hormonal y mioinositol.'
   }
 ];
 
@@ -87,18 +92,18 @@ export const TransformationSlider: React.FC<{ onOpenBooking: () => void }> = ({ 
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-3 border border-brand-200">
             <Award className="w-3.5 h-3.5" />
-            <span>Documented Clinical Outcomes</span>
+            <span>Casos Reales de Pacientes</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight font-display mb-4">
-            Real People. Real Biomarkers. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-600">
-              Lasting Transformations.
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-display mb-4">
+            Personas Reales. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-emerald-600 to-teal-600">
+              Resultados Definitivos Sin Rebote
             </span>
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base">
-            We track cellular markers: fasting insulin, lipid particle sizes, microbiome diversity, and inflammatory cytokines.
+          <p className="text-slate-600 text-base">
+            No nos conformamos con números en la báscula: medimos salud metabólica, analíticas clínicas, composición corporal y cómo te sientes en tu día a día.
           </p>
         </div>
 
@@ -111,7 +116,7 @@ export const TransformationSlider: React.FC<{ onOpenBooking: () => void }> = ({ 
                 setActiveStudyIndex(idx);
                 setSliderPos(50);
               }}
-              className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+              className={`px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
                 activeStudyIndex === idx
                   ? 'bg-brand-600 text-white shadow-md'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
@@ -133,110 +138,117 @@ export const TransformationSlider: React.FC<{ onOpenBooking: () => void }> = ({ 
               {/* After Image (Full background) */}
               <img
                 src={current.afterImg}
-                alt="After transformation"
+                alt="Después de la transformación"
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
               {/* Before Image (Clipped overlay) */}
               <div
+                className="absolute inset-0 overflow-hidden"
                 style={{ width: `${sliderPos}%` }}
-                className="absolute inset-y-0 left-0 overflow-hidden border-r-2 border-white shadow-lg z-10"
               >
                 <img
                   src={current.beforeImg}
-                  alt="Before transformation"
-                  className="absolute inset-y-0 left-0 max-w-none h-full object-cover"
-                  style={{ width: '100%', minWidth: '400px' }}
+                  alt="Antes del tratamiento"
+                  className="absolute inset-0 w-full h-full object-cover max-w-none"
+                  style={{ width: '100%', height: '100%', objectPosition: 'left center' }}
                 />
-                <span className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-full">
-                  Before
-                </span>
               </div>
 
-              {/* After label */}
-              <span className="absolute top-3 right-3 bg-brand-600/90 backdrop-blur-md text-white text-[11px] font-bold px-2.5 py-1 rounded-full z-0">
-                After ({current.duration})
-              </span>
-
-              {/* Slider Thumb Handle */}
+              {/* Divider Line */}
               <div
+                className="absolute top-0 bottom-0 w-1 bg-white shadow-lg cursor-ew-resize flex items-center justify-center"
                 style={{ left: `${sliderPos}%` }}
-                className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 z-20 pointer-events-none w-8 h-8 rounded-full bg-white text-slate-800 shadow-xl border-2 border-brand-500 flex items-center justify-center"
               >
-                <ArrowLeftRight className="w-4 h-4 text-brand-600" />
+                <div className="w-8 h-8 rounded-full bg-white text-slate-900 shadow-xl flex items-center justify-center -ml-3.5 border border-slate-200">
+                  <ArrowLeftRight className="w-4 h-4 text-brand-600" />
+                </div>
               </div>
 
-              {/* Range input invisible overlay for smooth touch/drag */}
+              {/* Slider Input overlay */}
               <input
                 type="range"
                 min="0"
                 max="100"
                 value={sliderPos}
                 onChange={(e) => setSliderPos(Number(e.target.value))}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
+                className="absolute inset-0 opacity-0 cursor-ew-resize w-full h-full z-30"
+                aria-label="Deslizar para comparar antes y después"
               />
+
+              {/* Badges */}
+              <div className="absolute top-3 left-3 bg-slate-950/70 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Antes
+              </div>
+              <div className="absolute top-3 right-3 bg-brand-600/90 backdrop-blur-md text-white text-[10px] font-black px-2.5 py-1 rounded-md uppercase tracking-wider">
+                Después
+              </div>
             </div>
 
-            <p className="text-xs text-slate-600 mt-3 flex items-center gap-1.5">
-              <ArrowLeftRight className="w-3.5 h-3.5 text-brand-600" />
-              <span>Drag slider or swipe left & right to compare</span>
+            <p className="text-xs text-slate-500 font-semibold mt-3 text-center">
+              ↔ Desliza la barra para ver la transformación completa
             </p>
 
           </div>
 
-          {/* Right Column: Biometric Stats & Patient Story (6 cols) */}
+          {/* Right Column: Clinical Metrics and Patient Narrative (6 cols) */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
-                  {current.condition}
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold text-brand-800 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">
+                  {current.condition} • {current.duration}
                 </span>
-                <span className="text-xs font-semibold text-slate-600">Protocol length: {current.duration}</span>
+                <span className="text-xs text-slate-500 font-bold">{current.location}</span>
               </div>
 
-              <h3 className="text-2xl font-black text-slate-900 font-display mb-2">{current.name}, {current.age}</h3>
+              <h3 className="text-2xl font-black text-slate-900 font-display mb-3">
+                {current.name}, {current.age} años
+              </h3>
 
               {/* Quote */}
-              <div className="relative p-4 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6">
-                <Quote className="w-6 h-6 text-brand-300 absolute -top-3 -left-2 fill-brand-100" />
-                <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed pl-2">
+              <div className="relative p-4 rounded-2xl bg-emerald-50/70 border border-emerald-100 mb-6">
+                <Quote className="w-6 h-6 text-emerald-400 absolute top-2 right-3 opacity-40" />
+                <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed relative z-10">
                   "{current.quote}"
                 </p>
               </div>
 
-              {/* Biomarker Stats Grid */}
-              <div className="space-y-3 mb-6">
-                <p className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-                  Clinical Blood & Metabolic Markers
-                </p>
-                <div className="grid grid-cols-3 gap-2.5">
-                  {current.metrics.map((m, idx) => (
-                    <div key={idx} className="p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/70 text-center">
-                      <span className="text-[10px] text-slate-600 block mb-0.5">{m.label}</span>
-                      <div className="text-xs line-through text-slate-600">{m.before}</div>
-                      <div className="text-sm sm:text-base font-black text-emerald-800 font-display">{m.after}</div>
-                      <span className="inline-block mt-1 text-[10px] font-bold text-brand-700 bg-emerald-100 px-1.5 py-0.2 rounded">
-                        {m.delta}
-                      </span>
+              {/* Metrics Grid */}
+              <div className="grid grid-cols-3 gap-2.5 mb-6">
+                {current.metrics.map((m, idx) => (
+                  <div key={idx} className="p-3 rounded-2xl bg-slate-50 border border-slate-200/80 text-center">
+                    <span className="text-[10px] font-bold text-slate-500 uppercase block mb-0.5">
+                      {m.label}
+                    </span>
+                    <div className="text-xs text-slate-400 line-through font-semibold mb-0.5">
+                      {m.before}
                     </div>
-                  ))}
-                </div>
+                    <div className="text-sm font-black text-slate-900 font-display">
+                      {m.after}
+                    </div>
+                    <span className="inline-block mt-1 text-[10px] font-black text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded">
+                      {m.delta}
+                    </span>
+                  </div>
+                ))}
               </div>
 
-              {/* Protocol used */}
-              <div className="text-xs text-slate-600 mb-6 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                <strong className="text-slate-800">Protocol Prescribed: </strong>
-                {current.protocol}
+              {/* Clinical Protocol */}
+              <div className="text-xs text-slate-600 mb-6 bg-white p-3 rounded-xl border border-slate-200">
+                <span className="font-bold text-slate-900 block mb-0.5">Pauta aplicada en consulta:</span>
+                <p>{current.protocol}</p>
               </div>
+
             </div>
 
             <button
               onClick={onOpenBooking}
-              className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-sm"
             >
-              <span>Get Your Own Tailored Protocol</span>
+              <span>Quiero Conseguir Resultados Como Este</span>
               <ChevronRight className="w-4 h-4 text-emerald-400" />
             </button>
+
           </div>
 
         </div>

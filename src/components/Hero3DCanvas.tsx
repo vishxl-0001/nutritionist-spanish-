@@ -108,11 +108,11 @@ export const Hero3DCanvas: React.FC = () => {
     // 3. Orbiting Nutrient Spheres (Vitamin C, Zinc, Omega-3, Polyphenols)
     const nutrientGroup = new THREE.Group();
     const nutrientData = [
-      { name: 'Vitamin C', color: '#fbbf24', radius: 2.7, speed: 0.015, size: 0.28, phase: 0 },
+      { name: 'Vitamina C', color: '#fbbf24', radius: 2.7, speed: 0.015, size: 0.28, phase: 0 },
       { name: 'Omega-3', color: '#38bdf8', radius: 3.1, speed: 0.011, size: 0.32, phase: 2.1 },
-      { name: 'Antioxidants', color: '#ec4899', radius: 2.5, speed: 0.018, size: 0.25, phase: 4.2 },
-      { name: 'Gut Probiotics', color: '#22c55e', radius: 3.3, speed: 0.009, size: 0.34, phase: 1.1 },
-      { name: 'Pure Protein', color: '#a855f7', radius: 2.9, speed: 0.013, size: 0.26, phase: 3.5 },
+      { name: 'Antioxidantes', color: '#ec4899', radius: 2.5, speed: 0.018, size: 0.25, phase: 4.2 },
+      { name: 'Microbiota y Probióticos', color: '#22c55e', radius: 3.3, speed: 0.009, size: 0.34, phase: 1.1 },
+      { name: 'Proteína de Calidad', color: '#a855f7', radius: 2.9, speed: 0.013, size: 0.26, phase: 3.5 },
     ];
 
     const nutrientMeshes: THREE.Mesh[] = [];
@@ -288,43 +288,43 @@ export const Hero3DCanvas: React.FC = () => {
       <div 
         ref={mountRef} 
         className="w-full h-full cursor-grab active:cursor-grabbing" 
-        title="Drag or touch to rotate 3D cellular nutrition model"
+        title="Arrastra con el ratón o desliza con el dedo para girar el modelo 3D"
       />
 
       {/* Floating 3D Interaction Control Overlay */}
       <div className="absolute top-3 right-3 sm:top-5 sm:right-5 flex items-center gap-2">
         <button
           onClick={() => setIsRotating(!isRotating)}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium flex items-center gap-1.5 transition-all shadow-sm ${
+          className={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm ${
             isRotating 
-              ? 'bg-brand-500/10 text-brand-700 border border-brand-200 hover:bg-brand-500/20' 
+              ? 'bg-brand-500/10 text-brand-800 border border-brand-200 hover:bg-brand-500/20' 
               : 'bg-white/80 text-slate-600 border border-slate-200 hover:bg-white'
           } backdrop-blur-md`}
         >
           <RotateCw className={`w-3.5 h-3.5 ${isRotating ? 'animate-spin-slow' : ''}`} />
-          <span>{isRotating ? 'Auto Rotate' : 'Paused'}</span>
+          <span>{isRotating ? 'Giro automático' : 'En pausa'}</span>
         </button>
       </div>
 
       {/* Nutrient quick indicator badges around 3D viewport */}
       <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-auto flex flex-wrap gap-2 justify-center sm:justify-start pointer-events-auto">
         {[
-          { label: '🥑 Micronutrients', color: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
-          { label: '✨ Bio-availability', color: 'bg-amber-50 text-amber-800 border-amber-200' },
-          { label: '🧬 Gut Microbiome', color: 'bg-teal-50 text-teal-800 border-teal-200' },
+          { label: '🥑 Comida Real', color: 'bg-emerald-50 text-emerald-900 border-emerald-200' },
+          { label: '✨ Cero Productos Milagro', color: 'bg-amber-50 text-amber-900 border-amber-200' },
+          { label: '🧬 Salud Digestiva', color: 'bg-teal-50 text-teal-900 border-teal-200' },
         ].map((item, idx) => (
           <span
             key={idx}
-            className={`text-xs px-3 py-1 rounded-full font-medium border shadow-xs backdrop-blur-md ${item.color}`}
+            className={`text-xs px-3 py-1 rounded-full font-bold border shadow-xs backdrop-blur-md ${item.color}`}
           >
             {item.label}
           </span>
         ))}
       </div>
 
-      <div className="absolute bottom-2 right-2 hidden lg:flex items-center gap-1 text-[11px] text-slate-600 bg-white/70 backdrop-blur-sm px-2.5 py-1 rounded-full border border-slate-200/60 pointer-events-none">
+      <div className="absolute bottom-2 right-2 hidden lg:flex items-center gap-1 text-[11px] font-medium text-slate-600 bg-white/80 backdrop-blur-sm px-2.5 py-1 rounded-full border border-slate-200/60 pointer-events-none">
         <Eye className="w-3 h-3 text-brand-600" />
-        <span>Interactive 3D: Click & Drag to Orbit</span>
+        <span>Interactivo 3D: Arrastra para rotar</span>
       </div>
     </div>
   );

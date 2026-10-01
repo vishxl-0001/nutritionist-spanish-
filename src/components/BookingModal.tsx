@@ -5,11 +5,13 @@ import {
   Clock, 
   Video, 
   MapPin, 
-  ShoppingBag, 
+  Users, 
   CheckCircle2, 
   ArrowRight, 
   ShieldCheck,
-  CalendarCheck
+  CalendarCheck,
+  MessageCircle,
+  Phone
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -20,33 +22,34 @@ interface BookingModalProps {
 
 export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState<number>(1);
-  const [format, setFormat] = useState<string>('virtual');
-  const [selectedDate, setSelectedDate] = useState<string>('Tomorrow, Oct 14');
-  const [selectedTime, setSelectedTime] = useState<string>('10:00 AM');
+  const [format, setFormat] = useState<string>('in_person');
+  const [selectedDate, setSelectedDate] = useState<string>('Mañana');
+  const [selectedTime, setSelectedTime] = useState<string>('11:00');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    goal: 'Weight Loss & Energy',
+    goal: 'Pérdida de Peso y Reeducación',
     notes: ''
   });
 
   if (!isOpen) return null;
 
   const dates = [
-    { label: 'Today', day: 'Oct 13', slots: '1 Slot Left' },
-    { label: 'Tomorrow', day: 'Oct 14', slots: '3 Slots Left' },
-    { label: 'Wednesday', day: 'Oct 15', slots: '4 Slots Left' },
-    { label: 'Thursday', day: 'Oct 16', slots: '2 Slots Left' },
-    { label: 'Friday', day: 'Oct 17', slots: '5 Slots Left' },
+    { label: 'Mañana', day: 'Próxima cita', slots: '2 Huecos libres' },
+    { label: 'Pasado mañana', day: 'En 48h', slots: '3 Huecos libres' },
+    { label: 'Jueves', day: 'Esta semana', slots: '4 Huecos libres' },
+    { label: 'Viernes', day: 'Esta semana', slots: '1 Hueco libre' },
+    { label: 'Próxima semana', day: 'Lunes', slots: '5 Huecos libres' },
   ];
 
   const timeSlots = [
-    '09:00 AM',
-    '10:30 AM',
-    '01:00 PM',
-    '03:30 PM',
-    '05:00 PM'
+    '09:30',
+    '11:00',
+    '12:30',
+    '16:30',
+    '18:00',
+    '19:30'
   ];
 
   const handleComplete = (e: React.FormEvent) => {
@@ -68,24 +71,40 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
     onClose();
   };
 
+  const formatLabels: Record<string, string> = {
+    in_person: 'Presencial en Sevilla (Bermejales Center)',
+    virtual: 'Videoconsulta Online (Toda España)',
+    couple: 'Consulta Pareja / Familiar'
+  };
+
+  const whatsappMessage = `Hola, he solicitado una cita en la web de Punto Final:
+- Nombre: ${formData.name}
+- Modalidad: ${formatLabels[format] || format}
+- Día preferido: ${selectedDate} a las ${selectedTime}
+- Teléfono: ${formData.phone}
+- Motivo: ${formData.goal}`;
+
+  const whatsappUrl = `https://wa.me/34682602256?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
       <div className="relative bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-100 flex flex-col">
         
         {/* Header */}
-        <div className="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+        <div className="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-brand-600 text-white flex items-center justify-center">
-              <Calendar className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-xl bg-brand-600 text-white flex items-center justify-center font-bold text-xs">
+              PF
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900 font-display">Schedule Your Consultation</h3>
-              <p className="text-xs text-slate-600">With Dr. Elena Vance, RD, IFMCP</p>
+              <h3 className="text-base font-black text-slate-900 font-display">Reserva de Consulta Previa</h3>
+              <p className="text-xs text-slate-500 font-semibold">PUNTOFINAL. Nutrición Sevilla</p>
             </div>
           </div>
           <button
             onClick={handleResetAndClose}
             className="p-2 rounded-full hover:bg-slate-200 text-slate-500 transition-colors"
+            aria-label="Cerrar modal"
           >
             <X className="w-5 h-5" />
           </button>
@@ -97,31 +116,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
           {/* Step 1: Format */}
           {step === 1 && (
             <div className="animate-fadeIn">
-              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-                Step 1: Select Consultation Format
+              <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-4">
+                Paso 1: Selecciona la Modalidad de Consulta
               </h4>
               <div className="space-y-3 mb-6">
                 {[
                   {
-                    id: 'virtual',
-                    title: 'HD Telehealth Video Call',
-                    sub: 'Available worldwide from your home (Zoom/Google Meet)',
-                    icon: Video,
-                    badge: 'Most Popular'
-                  },
-                  {
                     id: 'in_person',
-                    title: 'In-Clinic In-Person Consultation',
-                    sub: 'Fifth Avenue Wellness Clinic, New York, NY',
+                    title: 'Consulta Presencial en Sevilla',
+                    sub: 'Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20 (41012)',
                     icon: MapPin,
-                    badge: 'Limited Availability'
+                    badge: 'Clínica en Sevilla'
                   },
                   {
-                    id: 'kitchen_audit',
-                    title: 'Virtual Kitchen & Pantry Audit',
-                    sub: 'Live video walkthrough of your fridge, pantry, and cookware',
-                    icon: ShoppingBag,
-                    badge: 'Hands-on'
+                    id: 'virtual',
+                    title: 'Videoconsulta Online (Toda España)',
+                    sub: 'Desde tu hogar por Google Meet o Zoom, con el mismo rigor y seguimiento',
+                    icon: Video,
+                    badge: 'Más Cómoda'
+                  },
+                  {
+                    id: 'couple',
+                    title: 'Consulta en Pareja o Familiar',
+                    sub: 'Aprender a comer juntos, organizar la despensa familiar y compartir recetas',
+                    icon: Users,
+                    badge: '2 Personas'
                   }
                 ].map((item) => {
                   const Icon = item.icon;
@@ -131,22 +150,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                       onClick={() => setFormat(item.id)}
                       className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-start justify-between ${
                         format === item.id
-                          ? 'border-brand-500 bg-brand-50/60 shadow-xs'
+                          ? 'border-brand-500 bg-brand-50/70 shadow-xs'
                           : 'border-slate-200 hover:border-slate-300 bg-white'
                       }`}
                     >
                       <div className="flex items-start gap-3">
-                        <div className={`p-2 rounded-xl mt-0.5 ${
+                        <div className={`p-2.5 rounded-xl mt-0.5 ${
                           format === item.id ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600'
                         }`}>
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <p className="text-xs sm:text-sm font-bold text-slate-900">{item.title}</p>
-                          <p className="text-[11px] text-slate-600">{item.sub}</p>
+                          <p className="text-sm font-bold text-slate-900">{item.title}</p>
+                          <p className="text-xs text-slate-500 mt-0.5 font-medium">{item.sub}</p>
                         </div>
                       </div>
-                      <span className="text-[10px] font-bold text-brand-700 bg-brand-100 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-black text-brand-800 bg-brand-100 px-2 py-0.5 rounded-full ml-2 flex-shrink-0">
                         {item.badge}
                       </span>
                     </div>
@@ -156,58 +175,57 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
 
               <button
                 onClick={() => setStep(2)}
-                className="w-full py-3.5 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md"
+                className="w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all"
               >
-                <span>Continue to Date & Time</span>
+                <span>Continuar a Selección de Fecha</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
           )}
 
-          {/* Step 2: Date & Time Picker */}
+          {/* Step 2: Date & Time */}
           {step === 2 && (
             <div className="animate-fadeIn">
-              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">
-                Step 2: Choose Available Day
+              <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-4">
+                Paso 2: Elige Día y Franja Horaria
               </h4>
-              
-              {/* Dates */}
+
+              {/* Day selection */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mb-6">
-                {dates.map((d, i) => {
-                  const fullStr = `${d.label}, ${d.day}`;
-                  const isSelected = selectedDate === fullStr;
-                  return (
-                    <button
-                      key={i}
-                      type="button"
-                      onClick={() => setSelectedDate(fullStr)}
-                      className={`p-3 rounded-2xl border text-left transition-all ${
-                        isSelected
-                          ? 'border-brand-500 bg-brand-50/70 text-brand-900 shadow-xs'
-                          : 'border-slate-200 bg-white hover:border-slate-300 text-slate-700'
-                      }`}
-                    >
-                      <p className="text-xs font-bold">{d.label}</p>
-                      <p className="text-sm font-black font-display">{d.day}</p>
-                      <p className="text-[10px] text-emerald-600 font-semibold mt-0.5">{d.slots}</p>
-                    </button>
-                  );
-                })}
+                {dates.map((d, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setSelectedDate(d.label)}
+                    className={`p-3 rounded-2xl text-left border transition-all ${
+                      selectedDate === d.label
+                        ? 'border-brand-500 bg-brand-50/80 text-brand-950 font-bold shadow-xs'
+                        : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
+                    }`}
+                  >
+                    <p className="text-xs font-bold">{d.label}</p>
+                    <p className="text-[11px] text-slate-500">{d.day}</p>
+                    <span className="inline-block mt-1 text-[9px] font-black text-emerald-700 bg-emerald-100 px-1.5 py-0.2 rounded">
+                      {d.slots}
+                    </span>
+                  </button>
+                ))}
               </div>
 
-              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">
-                Select Time Slot (EST)
-              </h4>
+              {/* Time selection */}
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Horario disponible (L-V 9:00 a 21:00)
+              </label>
               <div className="grid grid-cols-3 gap-2 mb-6">
                 {timeSlots.map((time, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setSelectedTime(time)}
-                    className={`py-2.5 px-3 rounded-xl text-xs font-bold border transition-all ${
+                    className={`py-2.5 rounded-xl text-xs font-bold border transition-all ${
                       selectedTime === time
-                        ? 'border-brand-600 bg-brand-600 text-white shadow-xs'
-                        : 'border-slate-200 hover:border-slate-300 bg-white text-slate-700'
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                        : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                     }`}
                   >
                     {time}
@@ -215,138 +233,156 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 ))}
               </div>
 
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="w-1/3 py-3 rounded-2xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50"
+                  className="px-4 py-3 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50"
                 >
-                  Back
+                  Atrás
                 </button>
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="w-2/3 py-3 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md"
+                  className="flex-1 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center justify-center gap-2"
                 >
-                  <span>Enter Details</span>
+                  <span>Continuar a Datos del Paciente</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
           )}
 
-          {/* Step 3: Client Details */}
+          {/* Step 3: Patient Form */}
           {step === 3 && (
             <form onSubmit={handleComplete} className="animate-fadeIn space-y-4">
-              <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">
-                Step 3: Patient Intake Info
+              <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-2">
+                Paso 3: Tus Datos de Contacto
               </h4>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Nombre y Apellidos *</label>
                 <input
-                  required
                   type="text"
-                  placeholder="e.g. Jordan Smith"
+                  required
+                  placeholder="Ej: Carmen Rodríguez"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-brand-500 bg-slate-50/50"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-brand-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Teléfono Móvil (WhatsApp) *</label>
                   <input
+                    type="tel"
                     required
-                    type="email"
-                    placeholder="jordan@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-brand-500 bg-slate-50/50"
+                    placeholder="Ej: 612 34 56 78"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-brand-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                  <label className="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico *</label>
                   <input
+                    type="email"
                     required
-                    type="tel"
-                    placeholder="+1 (555) 000-0000"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-brand-500 bg-slate-50/50"
+                    placeholder="tucorreo@ejemplo.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-brand-500"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Primary Health Goal</label>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Principal Motivo de Consulta</label>
                 <select
                   value={formData.goal}
                   onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-brand-500 bg-white"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-brand-500 bg-white"
                 >
-                  <option>Metabolic Reset & Fat Loss</option>
-                  <option>Severe Bloating & Gut Dysbiosis</option>
-                  <option>PCOS & Hormonal Irregularities</option>
-                  <option>High Cholesterol / Insulin Resistance</option>
-                  <option>Endurance Athletic Performance</option>
+                  <option>Pérdida de Grasa y Fin del Efecto Rebote</option>
+                  <option>Salud Digestiva: Hinchazón, Gases o SIBO</option>
+                  <option>Salud Hormonal: SOP, Tiroides o Ciclos Irregulares</option>
+                  <option>Psiconutrición y Ansiedad por la Comida</option>
+                  <option>Nutrición Deportiva y Composición Corporal</option>
+                  <option>Reeducación Nutricional Familiar</option>
                 </select>
               </div>
 
-              <div className="flex gap-3 pt-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-1">Notas o analíticas previas (opcional)</label>
+                <textarea
+                  rows={2}
+                  placeholder="Cuéntanos brevemente tu caso o si tienes analíticas recientes..."
+                  value={formData.notes}
+                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                  className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-brand-500"
+                />
+              </div>
+
+              <div className="flex gap-2 pt-2">
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="w-1/3 py-3 rounded-2xl border border-slate-200 text-slate-600 font-bold text-xs hover:bg-slate-50"
+                  className="px-4 py-3 rounded-xl border border-slate-200 text-slate-600 text-xs font-bold hover:bg-slate-50"
                 >
-                  Back
+                  Atrás
                 </button>
                 <button
                   type="submit"
-                  className="w-2/3 py-3 rounded-2xl bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                  className="flex-1 py-3 rounded-xl bg-gradient-to-r from-brand-700 to-emerald-600 hover:from-brand-800 hover:to-emerald-700 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-sm"
                 >
-                  <span>Confirm Appointment</span>
-                  <CheckCircle2 className="w-4 h-4" />
+                  <CalendarCheck className="w-4 h-4" />
+                  <span>Confirmar Solicitud de Cita</span>
                 </button>
               </div>
             </form>
           )}
 
-          {/* Step 4: Confirmation */}
+          {/* Step 4: Success & WhatsApp Direct Trigger */}
           {step === 4 && (
             <div className="animate-fadeIn text-center py-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-brand-600 flex items-center justify-center mx-auto mb-4">
-                <CalendarCheck className="w-8 h-8" />
+              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="w-9 h-9" />
               </div>
               <h4 className="text-xl font-black text-slate-900 font-display mb-1">
-                Consultation Reserved!
+                ¡Solicitud Recibida con Éxito!
               </h4>
-              <p className="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto">
-                A calendar invite and pre-consultation metabolic intake questionnaire have been dispatched to <strong>{formData.email || 'your email'}</strong>.
+              <p className="text-xs text-slate-600 mb-6 max-w-sm mx-auto">
+                Hemos registrado tus preferencias. Nos pondremos en contacto contigo por teléfono o WhatsApp para confirmar la hora definitiva.
               </p>
 
-              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-left max-w-sm mx-auto text-xs space-y-2 mb-6">
-                <div className="flex justify-between">
-                  <span className="text-slate-600">Date:</span>
-                  <span className="font-bold text-slate-900">{selectedDate}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-600">Time:</span>
-                  <span className="font-bold text-slate-900">{selectedTime} EST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-600">Specialist:</span>
-                  <span className="font-bold text-brand-800">Dr. Elena Vance, RD</span>
-                </div>
+              {/* Summary Box */}
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs mb-6 space-y-1.5">
+                <p><strong className="text-slate-800">Paciente:</strong> {formData.name}</p>
+                <p><strong className="text-slate-800">Modalidad:</strong> {formatLabels[format]}</p>
+                <p><strong className="text-slate-800">Preferencia:</strong> {selectedDate} a las {selectedTime}</p>
+                <p><strong className="text-slate-800">Teléfono:</strong> {formData.phone}</p>
               </div>
 
-              <button
-                onClick={handleResetAndClose}
-                className="px-8 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-sm"
-              >
-                Back to Website
-              </button>
+              {/* Direct WhatsApp button */}
+              <div className="space-y-2">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Confirmar al instante por WhatsApp (+34 682 60 22 56)</span>
+                </a>
+
+                <button
+                  onClick={handleResetAndClose}
+                  className="w-full py-2.5 rounded-xl text-slate-600 hover:text-slate-900 text-xs font-semibold"
+                >
+                  Cerrar ventana
+                </button>
+              </div>
             </div>
           )}
 

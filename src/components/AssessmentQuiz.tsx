@@ -8,7 +8,8 @@ import {
   Activity, 
   ShieldAlert, 
   Award,
-  Zap
+  Zap,
+  MessageCircle
 } from 'lucide-react';
 import { Card3DTilt } from './Card3DTilt';
 
@@ -55,18 +56,18 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
         
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-semibold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-3 border border-brand-200">
             <Sparkles className="w-3.5 h-3.5 text-brand-600" />
-            <span>Interactive 60-Second Clinical Assessment</span>
+            <span>Test Diagnóstico Rápido (60 Segundos)</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display mb-3">
-            Discover Your Cellular <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-600">
-              Metabolic Archetype
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-display mb-3">
+            Descubre tu Perfil <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-emerald-600 to-teal-600">
+              Metabólico y Digestivo
             </span>
           </h2>
           <p className="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">
-            Answer 3 quick biological questions to unlock your custom clinical nutrition recommendations.
+            Responde 3 preguntas clave para identificar qué está bloqueando tu bienestar y recibir una orientación personalizada.
           </p>
         </div>
 
@@ -79,7 +80,7 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                 {/* Step indicator */}
                 <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
                   <span className="text-xs font-bold text-brand-700 uppercase tracking-wider">
-                    Question {currentStep} of 3
+                    Pregunta {currentStep} de 3
                   </span>
                   <div className="flex gap-1.5">
                     {[1, 2, 3].map((step) => (
@@ -93,18 +94,18 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                   </div>
                 </div>
 
-                {/* Question 1 */}
+                {/* Pregunta 1 */}
                 {currentStep === 1 && (
                   <div className="animate-fadeIn">
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6 font-display">
-                      What is the primary biological obstacle you currently face?
+                      ¿Cuál es el principal motivo u obstáculo que deseas solucionar?
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {[
-                        { title: 'Stubborn Midsection Fat & Slow Metabolism', desc: 'Dieting harder stops working, weight sticks', icon: '🔥' },
-                        { title: 'Severe Brain Fog & Afternoon Energy Crash', desc: 'Need caffeine & sugar to survive 3 PM', icon: '⚡' },
-                        { title: 'Chronic Bloating & Unpredictable Digestion', desc: 'Food sensitivities, stomach tightness', icon: '🥑' },
-                        { title: 'Hormonal Imbalance & Mood Swings', desc: 'PCOS symptoms, erratic sleep, irregular cycles', icon: '🌸' },
+                        { title: 'Grasa Rebelde y Efecto Rebote', desc: 'Dietas restrictivas que dejé y recuperé el peso con creces', icon: '🔥' },
+                        { title: 'Hinchazón Abdominal y Malestar Digestivo', desc: 'Gases continuos, vientre abultado y digestiones pesadas', icon: '🥑' },
+                        { title: 'Bajones de Energía y Ansiedad por Dulce', desc: 'Cansancio a media tarde y picoteo descontrolado', icon: '⚡' },
+                        { title: 'Salud Hormonal, SOP o Tiroides', desc: 'Ciclos irregulares, retención de líquidos o estancamiento', icon: '🌸' },
                       ].map((opt, i) => (
                         <button
                           key={i}
@@ -118,7 +119,7 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                             <p className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-brand-900 mb-1">
                               {opt.title}
                             </p>
-                            <p className="text-[11px] text-slate-600 leading-tight">
+                            <p className="text-[11px] text-slate-500 leading-tight">
                               {opt.desc}
                             </p>
                           </div>
@@ -128,18 +129,18 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                   </div>
                 )}
 
-                {/* Question 2 */}
+                {/* Pregunta 2 */}
                 {currentStep === 2 && (
                   <div className="animate-fadeIn">
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6 font-display">
-                      How does your body typically respond 90 minutes after eating lunch?
+                      ¿Cómo responde tu cuerpo normalmente 1 o 2 horas después de comer?
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {[
-                        { title: 'Intense sleepiness and sudden carbohydrate cravings', desc: 'Indicator of rapid reactive hypoglycemia', icon: '🥱' },
-                        { title: 'Abdominal distension, gas, or mild nausea', desc: 'Sign of low stomach acid or enzyme deficiency', icon: '🫧' },
-                        { title: 'Hungry again as if you haven’t eaten', desc: 'Impaired leptin signaling and high insulin', icon: '🍽️' },
-                        { title: 'Stable, light, and mentally alert', desc: 'High metabolic flexibility and balanced macros', icon: '✨' },
+                        { title: 'Somnolencia intensa y ganas urgentes de dulce o café', desc: 'Indicio de pico y caída brusca de glucosa en sangre', icon: '🥱' },
+                        { title: 'Distensión en el abdomen, gases o pesadez', desc: 'Señal de fermentación bacteriana o disbiosis intestinal', icon: '🫧' },
+                        { title: 'Hambre de nuevo como si no hubiera comido nada', desc: 'Señales de saciedad desreguladas por falta de nutrientes clave', icon: '🍽️' },
+                        { title: 'Ligera/o, satisfecha/o y con mente despierta', desc: 'Buena adaptación digestiva y balance de platos', icon: '✨' },
                       ].map((opt, i) => (
                         <button
                           key={i}
@@ -153,7 +154,7 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                             <p className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-brand-900 mb-1">
                               {opt.title}
                             </p>
-                            <p className="text-[11px] text-slate-600 leading-tight">
+                            <p className="text-[11px] text-slate-500 leading-tight">
                               {opt.desc}
                             </p>
                           </div>
@@ -163,18 +164,18 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                   </div>
                 )}
 
-                {/* Question 3 */}
+                {/* Pregunta 3 */}
                 {currentStep === 3 && (
                   <div className="animate-fadeIn">
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-6 font-display">
-                      Which best describes your current nutrition pattern?
+                      ¿Cómo describirías tu relación actual con la comida?
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                       {[
-                        { title: 'High Stress & Skipping Meals, Binging Late Night', desc: 'Disrupted cortisol rhythm & circadian mismatch', icon: '🌙' },
-                        { title: 'Strict Calorie Restriction / Low-Fat Fad Diets', desc: 'Suppressed thyroid conversion and metabolic rate', icon: '📉' },
-                        { title: 'Eating "Clean" But Still Stuck with Symptoms', desc: 'Hidden food intolerances or gut dysbiosis', icon: '🥗' },
-                        { title: 'Frequent Dining Out & Processed On-The-Go Foods', desc: 'Inflammatory seed oils and mineral depletion', icon: '🥡' },
+                        { title: 'Ciclos de culpa: paso de control estricto a comer por ansiedad', desc: 'Cansancio emocional tras años de dietas restrictivas', icon: '🌙' },
+                        { title: 'Miedo a ciertos alimentos (pan, fruta por la noche, etc.)', desc: 'Mitos nutricionales que limitan tu vida social', icon: '📉' },
+                        { title: 'Como sano habitualmente pero mi cuerpo sigue sin responder', desc: 'Necesitas analizar qué nutrientes o digestión fallan', icon: '🥗' },
+                        { title: 'Falta total de tiempo y mala organización de menús', desc: 'Como fuera o recurro a ultraprocesados por prisa', icon: '🥡' },
                       ].map((opt, i) => (
                         <button
                           key={i}
@@ -188,7 +189,7 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                             <p className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-brand-900 mb-1">
                               {opt.title}
                             </p>
-                            <p className="text-[11px] text-slate-600 leading-tight">
+                            <p className="text-[11px] text-slate-500 leading-tight">
                               {opt.desc}
                             </p>
                           </div>
@@ -204,19 +205,19 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
               <div className="animate-fadeIn text-center sm:text-left">
                 
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-slate-100">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-600 to-emerald-400 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-500/30">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand-700 to-emerald-500 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-brand-500/30">
                     <Award className="w-8 h-8" />
                   </div>
                   <div>
                     <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-1">
                       <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>Analysis Complete</span>
+                      <span>Diagnóstico Preliminar Completado</span>
                     </div>
                     <h3 className="text-2xl font-black text-slate-900 font-display">
-                      Archetype: Metabolic & Cortisol Dysregulation
+                      Perfil: Fatiga Metabólica y Relación Restrictiva con la Comida
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 mt-1">
-                      Your answers indicate a combination of glycemic rollercoaster spikes and elevated adrenal cortisol.
+                      Tus respuestas reflejan un metabolismo ralentizado por dietas previas junto a fluctuaciones de glucosa e inflamación digestiva.
                     </p>
                   </div>
                 </div>
@@ -224,21 +225,21 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                 {/* Recommendations */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-6">
                   <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-100 text-left">
-                    <span className="text-[11px] font-bold text-brand-800 uppercase block mb-1">Priority #1</span>
-                    <p className="text-xs font-bold text-slate-800 mb-1">Glucose Level Flattening</p>
-                    <p className="text-[11px] text-slate-600">Frontload 30g protein at breakfast to blunt afternoon cortisol surges.</p>
+                    <span className="text-[11px] font-bold text-brand-800 uppercase block mb-1">Prioridad 1</span>
+                    <p className="text-xs font-bold text-slate-800 mb-1">Punto Final a la Culpa</p>
+                    <p className="text-[11px] text-slate-600">Comer comida real en cantidad suficiente para reactivar tu tasa metabólica basal.</p>
                   </div>
 
                   <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-100 text-left">
-                    <span className="text-[11px] font-bold text-amber-800 uppercase block mb-1">Priority #2</span>
-                    <p className="text-xs font-bold text-slate-800 mb-1">Gut Mucosa Repair</p>
-                    <p className="text-[11px] text-slate-600">Incorporate bioactive polyphenols and collagen peptides to seal junctions.</p>
+                    <span className="text-[11px] font-bold text-amber-800 uppercase block mb-1">Prioridad 2</span>
+                    <p className="text-xs font-bold text-slate-800 mb-1">Desinflamación Digestiva</p>
+                    <p className="text-[11px] text-slate-600">Introducir alimentos amigables con tu microbiota para eliminar gases e hinchazón.</p>
                   </div>
 
                   <div className="p-3.5 rounded-2xl bg-teal-50 border border-teal-100 text-left">
-                    <span className="text-[11px] font-bold text-teal-800 uppercase block mb-1">Priority #3</span>
-                    <p className="text-xs font-bold text-slate-800 mb-1">Circadian Alignment</p>
-                    <p className="text-[11px] text-slate-600">Stop eating 3 hours prior to sleep to enable cellular autophagy.</p>
+                    <span className="text-[11px] font-bold text-teal-800 uppercase block mb-1">Prioridad 3</span>
+                    <p className="text-xs font-bold text-slate-800 mb-1">Estabilidad Glucémica</p>
+                    <p className="text-[11px] text-slate-600">Secuenciar comidas con fibra y proteína para evitar los bajones de la tarde.</p>
                   </div>
                 </div>
 
@@ -246,18 +247,28 @@ export const AssessmentQuiz: React.FC<AssessmentQuizProps> = ({ onOpenBooking })
                 <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                   <button
                     onClick={onOpenBooking}
-                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-brand-700 via-brand-600 to-emerald-600 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
                   >
-                    <span>Discuss Results in Free 1-on-1 Call</span>
+                    <span>Comentar mi Caso en Consulta</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
+
+                  <a
+                    href="https://wa.me/34682602256?text=Hola,%20acabo%20de%20hacer%20el%20test%20nutricional%20en%20vuestra%20web%20y%20me%20gustar%C3%ADa%20pedir%20cita%20o%20informaci%C3%B3n"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold transition-colors flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-600" />
+                    <span>Preguntar por WhatsApp</span>
+                  </a>
 
                   <button
                     onClick={restartQuiz}
                     className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white border border-slate-200 text-slate-600 hover:text-slate-900 text-xs font-semibold transition-colors flex items-center justify-center gap-2"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Retake Quiz</span>
+                    <span>Repetir Test</span>
                   </button>
                 </div>
 
