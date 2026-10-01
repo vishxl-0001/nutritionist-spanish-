@@ -204,7 +204,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onNavigate }) => 
                   { id: 'quiz', label: 'Test de Diagnóstico (60 seg)', icon: Sparkles },
                   { id: 'transformations', label: 'Casos Reales y Resultados', icon: Award },
                   { id: 'programs', label: 'Planes y Tarifas', icon: Calendar },
-                  { id: 'about', label: 'Método y Equipo', icon: HeartPulse },
+                  { id: 'about', label: 'Sobre Mí y Método', icon: HeartPulse },
                 ].map((item) => {
                   const Icon = item.icon;
                   return (

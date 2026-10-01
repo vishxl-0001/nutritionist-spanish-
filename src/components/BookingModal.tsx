@@ -126,7 +126,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                     title: 'Consulta Presencial en Sevilla',
                     sub: 'Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20 (41012)',
                     icon: MapPin,
-                    badge: 'Clínica en Sevilla'
+                    badge: 'Consulta en Sevilla'
                   },
                   {
                     id: 'virtual',
@@ -353,7 +353,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
                 ¡Solicitud Recibida con Éxito!
               </h4>
               <p className="text-xs text-slate-600 mb-6 max-w-sm mx-auto">
-                Hemos registrado tus preferencias. Nos pondremos en contacto contigo por teléfono o WhatsApp para confirmar la hora definitiva.
+                He registrado tus preferencias. Me pondré en contacto contigo por teléfono o WhatsApp para confirmar la hora definitiva.
               </p>
 
               {/* Summary Box */}

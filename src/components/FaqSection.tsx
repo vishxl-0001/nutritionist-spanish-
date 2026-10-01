@@ -16,27 +16,27 @@ const faqs: FaqItem[] = [
   {
     category: 'Ubicación y Citas',
     question: '¿Dónde está la consulta en Sevilla y cómo funciona la modalidad online?',
-    answer: 'Nuestra clínica física está ubicada en Sevilla, en la Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20 (41012). Disponemos de fácil acceso y aparcamiento. Si vives fuera de Sevilla o tus horarios no te permiten desplazarte, atendemos a pacientes de toda España mediante videoconsulta online con el mismo protocolo, cercanía y seguimiento continuo.'
+    answer: 'Mi consulta presencial está ubicada en Sevilla, en la Avenida de Finlandia 1, Edificio Bermejales Center, Módulo 20 (41012). Cuenta con fácil acceso y aparcamiento. Si vives fuera de Sevilla o tus horarios no te permiten desplazarte, te atiendo mediante videoconsulta online con el mismo protocolo, cercanía y seguimiento continuo.'
   },
   {
     category: 'Seguros y Tarifas',
-    question: '¿Aceptáis seguros médicos privados (Adeslas, Sanitas, Asisa, etc.)?',
-    answer: 'Somos un centro sanitario privado e independiente para poder dedicarte entre 45 y 70 minutos por sesión sin prisas. Como somos Dietistas-Nutricionistas Colegiadas, emitimos factura sanitaria oficial válida para deducir o presentar ante pólizas de seguro con opción de reembolso de gastos médicos (donde te reintegran habitualmente entre el 80% y el 100%).'
+    question: '¿Aceptas seguros médicos privados (Adeslas, Sanitas, Asisa, etc.)?',
+    answer: 'Ejerzo en consulta privada e independiente para poder dedicarte entre 45 y 70 minutos por sesión sin prisas. Como Dietista-Nutricionista Colegiada, emito factura sanitaria oficial válida para deducir o presentar ante pólizas de seguro con opción de reembolso de gastos médicos (donde te reintegran habitualmente entre el 80% y el 100%).'
   },
   {
     category: 'Método y Comida',
-    question: '¿Me vais a vender pastillas, batidos o productos para adelgazar?',
-    answer: 'Nunca. Nuestro lema es poner PUNTO FINAL a las dietas milagro. No vendemos batidos sustitutivos, sobres ni pastillas quemagrasas. Todo tu plan se elabora con comida real de mercado, frutas, verduras, legumbres, pescados, carnes y aceite de oliva virgen extra.'
+    question: '¿Me vas a mandar pastillas, batidos o productos para adelgazar?',
+    answer: 'Nunca. Mi lema es poner PUNTO FINAL a las dietas milagro. No vendo batidos sustitutivos, sobres ni pastillas quemagrasas. Todo tu plan se elabora con comida real de mercado, frutas, verduras, legumbres, pescados, carnes y aceite de oliva virgen extra.'
   },
   {
     category: 'Acompañamiento',
     question: '¿Cómo funciona la resolución de dudas por WhatsApp entre consultas?',
-    answer: 'En nuestros planes de acompañamiento cuentas con un canal directo de WhatsApp con tu nutricionista. Si estás en el supermercado y dudas con una etiqueta, o si vas a comer fuera el fin de semana y no sabes qué pedir de la carta, te asesoramos para que aprendas a tomar las mejores decisiones en tiempo real.'
+    answer: 'En mis planes de acompañamiento cuentas con un canal directo de WhatsApp conmigo. Si estás en el supermercado y dudas con una etiqueta, o si vas a comer fuera el fin de semana y no sabes qué pedir de la carta, te asesoro para que aprendas a tomar las mejores decisiones en tiempo real.'
   },
   {
     category: 'Salud Digestiva',
-    question: 'Tengo hinchazón continua, gases o sospecha de SIBO. ¿Cómo me ayudáis?',
-    answer: 'Gran parte de nuestras pacientes acuden por problemas digestivos. Realizamos una valoración profunda de síntomas, revisamos analíticas o pruebas de aliento, y aplicamos protocolos por fases (retirada temporal de fermentables, reparación de mucosa intestinal y reintroducción paulatina) para eliminar la distensión abdominal de raíz.'
+    question: 'Tengo hinchazón continua, gases o sospecha de SIBO. ¿Cómo me puedes ayudar?',
+    answer: 'Gran parte de mis pacientes acuden por problemas digestivos. Realizo una valoración profunda de síntomas, reviso analíticas o pruebas de aliento, y aplico protocolos por fases (retirada temporal de fermentables, reparación de mucosa intestinal y reintroducción paulatina) para eliminar la distensión abdominal de raíz.'
   }
 ];
 

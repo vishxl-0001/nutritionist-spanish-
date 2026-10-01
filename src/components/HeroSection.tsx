@@ -56,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
 
             {/* Subheading */}
             <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed mb-8">
-              Sin batidos sustitutivos, sin pastillas ni restricciones imposibles. Te enseñamos reeducación nutricional, psiconutrición y salud digestiva y hormonal adaptada a tu vida real, tus gustos y tu ritmo.
+              Sin batidos sustitutivos, sin pastillas ni restricciones imposibles. Te enseño reeducación nutricional, psiconutrición y salud digestiva y hormonal adaptada a tu vida real, tus gustos y tu ritmo.
             </p>
 
             {/* CTAs */}
@@ -70,7 +70,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
               </button>
 
               <a
-                href="https://wa.me/34682602256?text=Hola,%20he%20visto%20vuestra%20web%20y%20me%20gustar%C3%ADa%20informaci%C3%B3n%20para%20empezar%20en%20Punto%20Final"
+                href="https://wa.me/34682602256?text=Hola,%20he%20visto%20tu%20web%20y%20me%20gustar%C3%ADa%20informaci%C3%B3n%20para%20empezar%20en%20Punto%20Final"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-white/95 hover:bg-emerald-50/80 text-slate-800 hover:text-emerald-800 border border-slate-200/90 font-bold text-base shadow-xs hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2"
@@ -100,10 +100,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
                 </div>
               </div>
 
-              {/* Tag liderado por mujeres / sanitario */}
+              {/* Tag consulta nutricional personalizada */}
               <div className="flex items-center gap-2 text-xs font-bold text-slate-700 bg-white/80 px-3.5 py-2 rounded-xl border border-slate-200/80 shadow-xs">
                 <Heart className="w-4 h-4 text-rose-500 fill-rose-500" />
-                <span>Centro Sanitario • Los Bermejales</span>
+                <span>Consulta de Nutrición • Los Bermejales</span>
               </div>
             </div>
 

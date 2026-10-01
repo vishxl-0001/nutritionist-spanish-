@@ -75,7 +75,7 @@ const caseStudies: CaseStudy[] = [
       { label: 'Ciclos Menstruales', before: '50-65 días', after: '29 días', delta: 'Regular' },
       { label: 'Energía y Digestión', before: 'Cansancio', after: 'Vitalidad', delta: '+100%' },
     ],
-    quote: "Tenía una barriga tan hinchada al final del día que tenía que desabrocharme los botones. Con el equipo de Punto Final identificamos qué fermentaba mal y regulamos mi ciclo menstrual. ¡Por fin vivo tranquila!",
+    quote: "Tenía una barriga tan hinchada al final del día que tenía que desabrocharme los botones. Con Punto Final identificamos qué fermentaba mal y regulamos mi ciclo menstrual. ¡Por fin vivo tranquila!",
     protocol: 'Protocolo digestivo de reintroducción guiada, pauta antiinflamatoria hormonal y mioinositol.'
   }
 ];

@@ -85,7 +85,7 @@ export const Footer: React.FC<{ onNavigate: (id: string) => void }> = ({ onNavig
               </span>
             </div>
             <p className="text-slate-400 leading-relaxed max-w-sm mb-6 text-xs">
-              Centro Sanitario de Nutrición y Dietética en Sevilla. Reeducación alimentaria, psiconutrición y abordaje de la salud digestiva y hormonal. Ponemos punto final a las dietas milagro para siempre.
+              Consulta de Nutrición y Dietética en Sevilla. Reeducación alimentaria, psiconutrición y abordaje de la salud digestiva y hormonal. Ponemos punto final a las dietas milagro para siempre.
             </p>
 
             {/* Google Rating mini banner */}
@@ -199,7 +199,7 @@ export const Footer: React.FC<{ onNavigate: (id: string) => void }> = ({ onNavig
               </li>
               <li>
                 <button onClick={() => onNavigate('about')} className="hover:text-emerald-400 transition-colors">
-                  Filosofía y Equipo Sanitario
+                  Mi Filosofía y Método
                 </button>
               </li>
             </ul>

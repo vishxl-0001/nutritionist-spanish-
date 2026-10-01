@@ -50,11 +50,11 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
             <Card3DTilt maxTilt={8} className="w-full max-w-md">
               <div className="relative rounded-3xl overflow-hidden shadow-float border border-slate-200/80 bg-slate-50 group">
                 
-                {/* Clinic / Team Photo */}
+                {/* Clinic / Dietitian Photo */}
                 <div className="relative h-96 sm:h-[460px] w-full">
                   <img
                     src="https://images.unsplash.com/photo-1594824813596-f08966c4c0f2?w=800&auto=format&fit=crop&q=80"
-                    alt="Equipo Punto Final Nutrición Sevilla"
+                    alt="Dietista-Nutricionista en Sevilla - Punto Final"
                     className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
@@ -63,10 +63,10 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
                   <div className="absolute bottom-5 left-5 right-5 text-white">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-600/95 backdrop-blur-sm text-xs font-bold mb-2">
                       <Stethoscope className="w-3.5 h-3.5" />
-                      <span>Dietistas-Nutricionistas Colegiadas</span>
+                      <span>Dietista-Nutricionista Colegiada</span>
                     </div>
-                    <h3 className="text-2xl font-black font-display">Equipo PUNTOFINAL.</h3>
-                    <p className="text-xs text-slate-200 font-medium">Especialistas en Reeducación Alimentaria y Salud Integral</p>
+                    <h3 className="text-2xl font-black font-display">PUNTOFINAL. Nutrición</h3>
+                    <p className="text-xs text-slate-200 font-medium">Especialista en Reeducación Alimentaria y Salud Femenina</p>
                   </div>
                 </div>
 
@@ -87,28 +87,28 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
           <div className="lg:col-span-7">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-brand-800 text-xs font-bold mb-4 border border-brand-200">
               <HeartPulse className="w-3.5 h-3.5" />
-              <span>Filosofía de Nuestro Centro</span>
+              <span>Mi Filosofía de Consulta</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight font-display mb-6">
-              "No te ponemos a dieta. <br />
+              "No te pongo a dieta. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 via-emerald-600 to-teal-600">
                 Ponemos PUNTO FINAL al efecto rebote."
               </span>
             </h2>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
-              En nuestro centro en <strong>Avenida de Finlandia (Edificio Bermejales Center, Sevilla)</strong>, entendemos que cada persona tiene una historia única con la báscula y la alimentación. Muchas de nuestras pacientes llegan cansadas de pasar hambre y de sentirse culpables tras cada comida social.
+              En mi consulta en <strong>Avenida de Finlandia (Edificio Bermejales Center, Sevilla)</strong>, entiendo que cada persona tiene una historia única con la báscula y la alimentación. Muchas de mis pacientes llegan cansadas de pasar hambre y de sentirse culpables tras cada comida social.
             </p>
 
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-              Nuestro compromiso es escucharte, entender tu contexto y enseñarte a comer con base científica y platos apetitosos. Combinamos la nutrición clínica con la psiconutrición para que alcances tu peso saludable y lo mantengas con naturalidad el resto de tu vida.
+              Mi compromiso es escucharte, entender tu contexto y enseñarte a comer con base científica y platos apetitosos. Combino la nutrición personalizada con la psiconutrición para que alcances tu peso saludable y lo mantengas con naturalidad el resto de tu vida.
             </p>
 
             {/* Philosophy Interactive Pillars */}
             <div className="mb-8">
               <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-3">
-                Los 4 Pilares del Método Punto Final
+                Los 4 Pilares de Mi Método
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {pillars.map((pillar, idx) => (
@@ -144,13 +144,13 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
               </button>
 
               <a
-                href="https://wa.me/34682602256?text=Hola,%20quisiera%20conocer%20m%C3%A1s%20sobre%20vuestro%20m%C3%A9todo%20de%20nutrici%C3%B3n%20en%20Punto%20Final"
+                href="https://wa.me/34682602256?text=Hola,%20quisiera%20conocer%20m%C3%A1s%20sobre%20tu%20m%C3%A9todo%20de%20nutrici%C3%B3n%20en%20Punto%20Final"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-5 py-3.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-bold text-xs sm:text-sm flex items-center gap-2 transition-all"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-600" />
-                <span>Escríbenos al 682 60 22 56</span>
+                <span>Escríbeme al 682 60 22 56</span>
               </a>
             </div>
 
