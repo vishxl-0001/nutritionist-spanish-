@@ -98,7 +98,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
             </div>
             <div>
               <h3 className="text-base font-black text-slate-900 font-display">Reserva de Consulta Previa</h3>
-              <p className="text-xs text-slate-500 font-semibold">PUNTOFINAL. Nutrición Sevilla</p>
+              <p className="text-xs text-slate-500 font-semibold">Con Rocío Jiménez • PUNTOFINAL. Nutrición a tu medida</p>
             </div>
           </div>
           <button

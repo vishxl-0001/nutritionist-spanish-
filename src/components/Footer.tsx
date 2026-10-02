@@ -142,19 +142,25 @@ export const Footer: React.FC<{ onNavigate: (id: string) => void }> = ({ onNavig
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <a href="tel:+34682602256" className="hover:text-white transition-colors">
-                  +34 682 60 22 56
+                <a href="tel:955641335" className="hover:text-white transition-colors">
+                  Fijo: 955 641 335
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                <a href="tel:682602256" className="hover:text-white transition-colors">
+                  Móvil: 682 602 256
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                 <a 
-                  href="https://wa.me/34682602256" 
+                  href="https://wa.me/34682602256?text=Hola%20Roc%C3%ADo,%20me%20gustar%C3%ADa%20pedir%20cita%20en%20Punto%20Final" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-emerald-300 transition-colors font-bold text-emerald-400"
                 >
-                  WhatsApp Citas
+                  WhatsApp Citas (682 602 256)
                 </a>
               </li>
               <li className="flex items-start gap-2 pt-1 border-t border-slate-800">

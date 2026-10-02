@@ -65,8 +65,8 @@ export const NutritionistProfile: React.FC<{ onOpenBooking: () => void }> = ({ o
                       <Stethoscope className="w-3.5 h-3.5" />
                       <span>Dietista-Nutricionista Colegiada</span>
                     </div>
-                    <h3 className="text-2xl font-black font-display">PUNTOFINAL. Nutrición</h3>
-                    <p className="text-xs text-slate-200 font-medium">Especialista en Reeducación Alimentaria y Salud Femenina</p>
+                    <h3 className="text-2xl font-black font-display">Rocío Jiménez López de Lemus</h3>
+                    <p className="text-xs text-slate-200 font-medium">Dietista-Nutricionista • PUNTOFINAL. Nutrición a tu medida</p>
                   </div>
                 </div>
 

@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking, onNavigate }) => 
                   </span>
                 </div>
                 <span className="text-[10px] tracking-wider uppercase font-bold text-slate-500 -mt-1 flex items-center gap-1">
-                  <span>Nutrición Sevilla</span>
+                  <span>Nutrición a tu medida</span>
                   <span className="w-1 h-1 rounded-full bg-brand-500" />
                   <span className="text-amber-600 flex items-center gap-0.5 font-extrabold">
                     <Star className="w-2.5 h-2.5 fill-amber-500 text-amber-500" /> 5.0
