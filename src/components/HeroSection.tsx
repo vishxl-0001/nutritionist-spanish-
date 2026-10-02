@@ -31,12 +31,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
       <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           
           {/* Left Column: Copy, Badges, and Action Triggers */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
             {/* Top Verified Clinic Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 border border-emerald-200/80 shadow-xs mb-6 backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-emerald-200/80 shadow-xs mb-5 backdrop-blur-md">
               <span className="flex h-2 w-2 rounded-full bg-brand-500 animate-ping" />
               <span className="text-xs font-bold text-slate-800 tracking-wide flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-brand-600" />
@@ -56,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
             </h1>
 
             {/* Badge Charlas grupales & individual */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold mb-4 shadow-2xs">
               <Users className="w-3.5 h-3.5 text-amber-600" />
               <span>Consultas individuales y Charlas grupales para adelgazar</span>
             </div>
@@ -116,98 +116,62 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenBooking, onNavig
 
           </div>
 
-          {/* Right Column: Official PUNTOFINAL Card & Floating 3D Tilt Cards */}
-          <div className="lg:col-span-6 relative flex items-center justify-center">
+          {/* Right Column: Clean & Unobstructed Official Poster Presentation */}
+          <div className="lg:col-span-6 relative flex flex-col items-center">
             
-            {/* Main Interactive Poster Box */}
-            <div className="relative w-full max-w-lg lg:max-w-none">
-              
-              {/* Soft decorative glow base */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-300/30 to-amber-200/30 rounded-full blur-2xl transform scale-90" />
-              
-              {/* Official Flyer Poster in 3D Card Tilt */}
-              <Card3DTilt maxTilt={8} className="relative z-10 w-full">
-                <div className="bg-white/95 backdrop-blur-md rounded-3xl border border-slate-200/80 p-3 sm:p-4 shadow-float hover:shadow-2xl transition-all duration-300 flex flex-col items-center">
-                  <div className="relative w-full rounded-2xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center shadow-xs">
-                    <img
-                      src="/puntofinal-cartel.png"
-                      alt="PUNTOFINAL. Nutrición a tu medida - Rocío Jiménez López de Lemus"
-                      className="w-full h-auto max-h-[500px] object-contain rounded-xl"
-                    />
+            {/* Poster Card with clean 3D perspective tilt (NO badges covering the text!) */}
+            <Card3DTilt maxTilt={6} className="w-full max-w-md sm:max-w-lg">
+              <div className="bg-white rounded-3xl border border-slate-200/90 p-4 sm:p-5 shadow-float hover:shadow-2xl transition-all duration-300 relative group overflow-hidden">
+                
+                {/* Subtle top indicator bar */}
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100 text-xs">
+                  <div className="flex items-center gap-2 font-bold text-slate-800">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Cartel Oficial • PUNTOFINAL.</span>
                   </div>
-                  <div className="mt-3 w-full flex items-center justify-between px-2 text-xs">
-                    <div className="flex items-center gap-1.5 font-bold text-slate-800">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Tel: 955 641 335 • 682 602 256</span>
-                    </div>
-                    <span className="text-[11px] font-black text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded-full border border-brand-200">
-                      Rocío Jiménez
-                    </span>
-                  </div>
+                  <span className="text-[11px] font-extrabold text-brand-700 bg-brand-50 px-2.5 py-0.5 rounded-full border border-brand-200">
+                    Sevilla
+                  </span>
                 </div>
-              </Card3DTilt>
 
-              {/* Floating 3D Badge 1: Reeducación Nutricional (Top Left) */}
-              <div className="absolute -top-4 -left-4 sm:top-2 sm:-left-8 z-20">
-                <Card3DTilt maxTilt={14} className="glass-card shadow-float p-3.5 rounded-2xl border border-white/90 w-52 sm:w-60">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700">
-                        <Activity className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-bold text-slate-900">Reeducación Real</span>
-                    </div>
-                    <span className="text-[10px] font-black text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">
-                      0% Rebote
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-xl sm:text-2xl font-black text-slate-900 font-display">Hábitos</span>
-                    <span className="text-xs text-slate-600 font-semibold">para toda la vida</span>
-                  </div>
-                  {/* Mini visual wave */}
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-2">
-                    <div className="bg-gradient-to-r from-brand-600 to-emerald-400 h-full rounded-full w-[100%]" />
-                  </div>
-                </Card3DTilt>
+                {/* The Poster Image - Completely Clean and Uncovered */}
+                <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-100 flex items-center justify-center shadow-xs">
+                  <img
+                    src="/puntofinal-cartel.png"
+                    alt="PUNTOFINAL. Nutrición a tu medida - Rocío Jiménez López de Lemus"
+                    className="w-full h-auto object-contain rounded-xl select-none"
+                    loading="eager"
+                  />
+                </div>
+
+                {/* Clean Bottom Footer Bar */}
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-600">
+                  <span className="flex items-center gap-1 text-slate-700 font-bold">
+                    <Phone className="w-3.5 h-3.5 text-brand-600" />
+                    <span>955 641 335 • 682 602 256</span>
+                  </span>
+                  <span className="text-[11px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold">
+                    Cita previa disponible
+                  </span>
+                </div>
+
               </div>
+            </Card3DTilt>
 
-              {/* Floating 3D Badge 2: Sin Hinchazón ni Ansiedad (Bottom Right) */}
-              <div className="absolute -bottom-6 -right-2 sm:bottom-0 sm:-right-6 z-20">
-                <Card3DTilt maxTilt={14} className="glass-card shadow-float p-3.5 rounded-2xl border border-white/90 w-56 sm:w-64">
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-7 h-7 rounded-lg bg-amber-100 flex items-center justify-center text-amber-700">
-                      <Zap className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-bold text-slate-900">Energía y Digestión</p>
-                      <p className="text-[10px] text-slate-500 font-medium">Cero hinchazón tras comer</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-100">
-                    <span className="text-slate-500 font-medium">Relación con la comida</span>
-                    <span className="font-bold text-emerald-700 flex items-center gap-1">
-                      <TrendingDown className="w-3.5 h-3.5" /> Sin culpa ni ansiedad
-                    </span>
-                  </div>
-                </Card3DTilt>
+            {/* Clean Highlight Badges placed NEATLY BELOW the poster (Zero overlap, 100% human-readable!) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 mt-5 w-full max-w-md sm:max-w-lg">
+              <div className="bg-white/90 backdrop-blur-sm p-3 rounded-2xl border border-slate-200/80 shadow-2xs text-center">
+                <span className="text-[10px] font-bold text-slate-500 block uppercase">Método</span>
+                <span className="text-xs font-extrabold text-brand-800">0% Efecto Rebote</span>
               </div>
-
-              {/* Floating 3D Badge 3: Ubicación Sevilla (Center Right) */}
-              <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-20 hidden sm:block">
-                <Card3DTilt maxTilt={12} className="glass-card shadow-soft p-3 rounded-2xl border border-white/90">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-lg bg-teal-100 flex items-center justify-center text-teal-700">
-                      <MapPin className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] font-extrabold text-slate-900">Bermejales Center</p>
-                      <p className="text-[9px] text-slate-500 font-medium">Módulo 20 • 41012 Sevilla</p>
-                    </div>
-                  </div>
-                </Card3DTilt>
+              <div className="bg-white/90 backdrop-blur-sm p-3 rounded-2xl border border-slate-200/80 shadow-2xs text-center">
+                <span className="text-[10px] font-bold text-slate-500 block uppercase">Modalidad</span>
+                <span className="text-xs font-extrabold text-slate-800">Grupal & Individual</span>
               </div>
-
+              <div className="col-span-2 sm:col-span-1 bg-white/90 backdrop-blur-sm p-3 rounded-2xl border border-slate-200/80 shadow-2xs text-center">
+                <span className="text-[10px] font-bold text-slate-500 block uppercase">Ubicación</span>
+                <span className="text-xs font-extrabold text-slate-800">Bermejales Center</span>
+              </div>
             </div>
 
           </div>
